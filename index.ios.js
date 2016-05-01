@@ -7,10 +7,12 @@ import React, {
   NavigatorIOS
 } from 'react-native';
 
+var SearchPage = require('./SearchPage');
+
 class HelloWorld extends Component {
   render() {
     return (
-      <Text style={styles.text}>Hello World (Again)</Text>
+      <Text style={styles.text}>Hello World !!!!</Text>
     );
   }
 }
@@ -22,7 +24,7 @@ class Laybium extends Component {
         style={styles.container}
         initialRoute={{
           title: 'Laybium',
-          component: HelloWorld,
+          component: SearchPage,
         }}/>
     );
   }
@@ -36,7 +38,7 @@ const styles = StyleSheet.create({
     margin: 80
   },
   container: {
-    flex: 1
+    flex: 1 // NOTE: htf does this work
   }
 });
 
