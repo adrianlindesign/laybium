@@ -17,10 +17,10 @@ class laybium extends Component {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          Welcome to React Native!
+          Welcome Heather to Qs 2nd iPhone app
         </Text>
         <Text style={styles.instructions}>
-          To get started, edit index.ios.js
+          To get started, Press Me!
         </Text>
         <Text style={styles.instructions}>
           Press Cmd+R to reload,{'\n'}
