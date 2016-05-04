@@ -63,6 +63,25 @@ var styles = StyleSheet.create({
     }
 });
 
+function urlForQueryAndPage(key, value, pageNumber) {
+	var data = {
+		//key: value,
+		country: 'uk',
+		pretty: '1',
+		encoding: 'json',
+		listing_type: 'buy',
+		action: 'search_listings',
+		//page: pageNumber
+	};
+	data[key] = value;
+
+	// ["country", "pretty", "encoding", "listing_type", "action"]
+	var arrayOfKeys = Object.keys(data); 
+	var queryString = arrayOfKeys.map(key => key + '=' + encodeURIComponent(data[key])).join('&');
+
+	return 'http://api.nestoria.co.uk/api?' + queryString;
+};
+
 class SearchPage extends Component {
     constructor(props) {
         super(props);
@@ -71,17 +90,16 @@ class SearchPage extends Component {
             isLoading: false
         };
     } 
+
     onSearchTextChanged(event) {
         this.setState({searchString: event.nativeEvent.text});
     }
-    _executeQuery(query) {
-        console.log('query', query);
-        this.setState({ isLoading: true });
-    }
+
     onSearchPressed() {
         var query = urlForQueryAndPage('place_name', this.state.searchString, 1);
         this._executeQuery(query);
     }
+
 	render() {
         var spinner = this.state.isLoading ? ( <ActivityIndicatorIOS size='large'/> ) : (<View/>);
 		return (
@@ -100,6 +118,7 @@ class SearchPage extends Component {
                     onChange={this.onSearchTextChanged.bind(this)}
 				    placeholder='Search via name or postcode'/>
 				  <TouchableHighlight style={styles.button}
+				  		onPress={this.onSearchPressed.bind(this)}
 				      underlayColor='#99d9f4'>
 				    <Text style={styles.buttonText}>Go</Text>
 				  </TouchableHighlight>
@@ -114,6 +133,11 @@ class SearchPage extends Component {
 	      	</View>
 		);
 	}
+
+	_executeQuery(query) {
+        console.log('query', query);
+        this.setState({ isLoading: true });
+    }
 }
 
 module.exports = SearchPage;
