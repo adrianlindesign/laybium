@@ -11,6 +11,7 @@ var {
   Image,
   Component
 } = React;
+var SearchResults = require('./SearchResults');
 
 var styles = StyleSheet.create({
   description: {
@@ -157,7 +158,11 @@ class SearchPage extends Component {
     	});
 
     	if (response.application_response_code.substr(0, 1) === '1') {
-    		console.log('Properties found: ' + response.listings.length);
+            this.props.navigator.push({
+                title: 'Results',
+                component: SearchResults,
+                passProps: {listings: response.listings}
+            });
     	} else {
     		this.setState({ message: 'Location not recognized; please try again.'});
     	}
