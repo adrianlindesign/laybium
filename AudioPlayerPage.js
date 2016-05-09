@@ -107,7 +107,7 @@ class AudioPlayerPage extends Component {
 		return (
 			<View style={styles.container}>
 		        <Text style={styles.description}>
-		          Search for houses to buy!
+		          Play!
 		        </Text>
 		        <Text style={styles.description}>
 		          Search by place-name, postcode or search near your location.

@@ -7,7 +7,6 @@ import React, {
   NavigatorIOS
 } from 'react-native';
 
-var SearchPage = require('./SearchPage');
 var AudioPlayerPage = require('./AudioPlayerPage');
 
 class HelloWorld extends Component {
@@ -25,7 +24,7 @@ class Laybium extends Component {
         style={styles.container}
         initialRoute={{
           title: 'Laybium',
-          component: SearchPage,
+          component: AudioPlayerPage,
         }}/>
     );
   }
