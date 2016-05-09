@@ -8,6 +8,7 @@ import React, {
 } from 'react-native';
 
 var SearchPage = require('./SearchPage');
+var AudioPlayerPage = require('./AudioPlayerPage');
 
 class HelloWorld extends Component {
   render() {

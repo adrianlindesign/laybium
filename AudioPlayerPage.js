@@ -1,4 +1,4 @@
-'use strict';
+-'use strict';
  
 var React = require('react-native');
 var {
@@ -83,7 +83,7 @@ function urlForQueryAndPage(key, value, pageNumber) {
 	return 'http://api.nestoria.co.uk/api?' + queryString;
 };
 
-class SearchPage extends Component {
+class AudioPlayerPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -169,4 +169,4 @@ class SearchPage extends Component {
     }
 }
 
-module.exports = SearchPage;
+module.exports = AudioPlayerPage;
