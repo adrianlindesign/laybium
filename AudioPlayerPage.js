@@ -12,6 +12,7 @@ var {
   Component
 } = React;
 var SearchResults = require('./SearchResults');
+var AudioPlayer = require('react-native-audioplayer');
 
 var styles = StyleSheet.create({
   description: {
@@ -89,7 +90,8 @@ class AudioPlayerPage extends Component {
         this.state = {
             searchString: 'london',
             isLoading: false, 
-            message: ''
+            message: '',
+            isPlaying: false
         };
     } 
 
@@ -97,16 +99,24 @@ class AudioPlayerPage extends Component {
         this.setState({searchString: event.nativeEvent.text});
     }
 
-    onSearchPressed() {
-        var query = urlForQueryAndPage('place_name', this.state.searchString, 1);
-        this._executeQuery(query);
+    onPlayPressed() {
+        // var query = urlForQueryAndPage('place_name', this.state.searchString, 1);
+        // this._executeQuery(query);
+    
+        // if (this.state.isPlaying) {
+            
+        // } else {
+            // AudioPlayer.play('music/adorn_by_miguel.mp3');
+        // }
     }
+    // https://github.com/zmxv/react-native-sound
+    // https://github.com/brentvatne/react-native-video - video
 
     render() {
         return (
             <View style={styles.container}>
                     <TouchableHighlight style={styles.button}
-                        onPress={this.onSearchPressed.bind(this)}
+                        onPress={this.onPlayPressed.bind(this)}
                         underlayColor='#99d9f4'>
                         <Text style={styles.buttonText}>Play</Text>
                     </TouchableHighlight>
